@@ -19,7 +19,10 @@ namespace YAZHXQ.Api.Controllers
         }
 
 
-        // GET api/values
+        /// <summary>
+        /// 获取所有人员信息
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("getall")]
         public ActionResult<IEnumerable<string>> Get()
         {
