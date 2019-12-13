@@ -17,10 +17,9 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "YAZHQXQ.Api": {
+    "YAZHXQ.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/StaffInfo/getall",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
