@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YAZHXQ.Common\YAZHXQ.Common.csproj" />
+    <ProjectReference Include="..\YAZHXQ.IService\YAZHXQ.IService.csproj" />
+    <ProjectReference Include="..\YAZHXQ.Models\YAZHXQ.Models.csproj" />
+    <ProjectReference Include="..\YAZHXQ.Service\YAZHXQ.Service.csproj" />
+    <ProjectReference Include="..\YAZHXQ.Utils\YAZHXQ.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

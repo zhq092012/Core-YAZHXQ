@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YAZHXQ.Common\YAZHXQ.Common.csproj" />
+    <ProjectReference Include="..\YAZHXQ.IService\YAZHXQ.IService.csproj" />
+    <ProjectReference Include="..\YAZHXQ.Models\YAZHXQ.Models.csproj" />
+  </ItemGroup>
+
+</Project>
