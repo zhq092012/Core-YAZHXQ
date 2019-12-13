@@ -20,5 +20,4 @@
     <ProjectReference Include="..\YAZHXQ.Service\YAZHXQ.Service.csproj" />
     <ProjectReference Include="..\YAZHXQ.Utils\YAZHXQ.Utils.csproj" />
   </ItemGroup>
-
 </Project>

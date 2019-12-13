@@ -3,18 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using YAZHXQ.IService;
 
 namespace YAZHXQ.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/staffinfo")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class StaffInfoController : ControllerBase
     {
+        private IStaffInfoService StaffInfoService { get; set; }
+
+        public StaffInfoController(IStaffInfoService staffInfoService)
+        {
+            StaffInfoService = staffInfoService;
+        }
+
+
         // GET api/values
-        [HttpGet]
+        [HttpGet("getall")]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var staffList = this.StaffInfoService.GetALL();
+            return new JsonResult(staffList);
         }
 
         // GET api/values/5
