@@ -10,16 +10,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace YAZHXQ.Models.Models
 {
-    public class YAZHXQMysqlContext : YAXQZHYYContext
+  public class YAZHXQMysqlContext : YAXQZHYYContext
+  {
+    public YAZHXQMysqlContext()
     {
-        public YAZHXQMysqlContext()
-        {
-        }
-        /// <summary>
-        /// 重写确定使用那个活动提供程序进行数据迁移
-        /// </summary>
-        /// <param name="optionsBuilder"></param>
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySql("server=localhost;uid=root;pwd=zhq092012;port=3306;database=YAXQZHYY");
     }
+
+    public YAZHXQMysqlContext(DbContextOptions<YAXQZHYYContext> options) : base(options)
+    {
+    }
+
+    /// <summary>
+    /// 重写确定使用那个活动提供程序进行数据迁移
+    /// </summary>
+    /// <param name="optionsBuilder"></param>
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseMySql("server=localhost;uid=root;pwd=zhq092012;port=3306;database=YAXQZHYY");
+  }
 }

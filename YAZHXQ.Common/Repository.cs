@@ -11,10 +11,10 @@ namespace YAZHXQ.Common
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private YAXQZHYYContext _context;
+        private DbContext _context;
         private readonly DbSet<T> _dbSet;
         private readonly string _connStr;
-        public Repository(YAXQZHYYContext context)
+        public Repository(DbContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();

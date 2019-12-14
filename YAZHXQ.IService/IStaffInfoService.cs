@@ -5,8 +5,8 @@ using YAZHXQ.Models.Models;
 
 namespace YAZHXQ.IService
 {
-    public interface IStaffInfoService
-    {
-        List<StaffInfo> GetALL();
-    }
+  public interface IStaffInfoService
+  {
+    List<StaffInfo> GetALL();
+  }
 }
