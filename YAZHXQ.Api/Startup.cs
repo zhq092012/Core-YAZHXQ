@@ -15,47 +15,60 @@ using YAZHXQ.Common;
 using YAZHXQ.IService;
 using YAZHXQ.Models.Models;
 using YAZHXQ.Service;
+using YAZHXQ.Utils;
 
 namespace YAZHXQ.Api
 {
-  public class Startup
-  {
-    public Startup(IConfiguration configuration)
+    public class Startup
     {
-      Configuration = configuration;
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            var dbType = Configuration.GetSection("DbType").Value.ToInt();
+            switch (dbType)
+            {
+                case (int)DbType.Mysql:
+                    //注入mysql数据库上下文
+                    services.AddDbContext<YAZHXQMysqlContext>(options => options.UseMySql(Configuration.GetConnectionString(DbType.Mysql.ToString())));
+                    break;
+                case (int)DbType.SqlServer:
+                    //注入Sqlserver数据库上下文
+                    services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString(DbType.SqlServer.ToString())));
+                    break;
+                default:
+                    //注入Sqlserver数据库上下文
+                    services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString(DbType.SqlServer.ToString())));
+                    break;
+            }
+            services.AddScoped<IRepositoryFactory, RepositoryFactory>();
+            services.AddScoped<IStaffInfoService, StaffInfoService>();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+          
+
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseHsts();
+            }
+
+            app.UseHttpsRedirection();
+            app.UseMvc();
+        }
     }
-
-    public IConfiguration Configuration { get; }
-
-    // This method gets called by the runtime. Use this method to add services to the container.
-    public void ConfigureServices(IServiceCollection services)
-    {    //注入mysql数据库上下文
-      services.AddDbContext<YAZHXQMysqlContext>(options => options.UseMySql(Configuration.GetConnectionString("Mysql")));
-
-      services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-      //配置EF服务注册
-      //services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
-
-
-      services.AddScoped<IRepositoryFactory, RepositoryFactory>();
-      services.AddScoped<IStaffInfoService, StaffInfoService>();
-
-    }
-
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-      if (env.IsDevelopment())
-      {
-        app.UseDeveloperExceptionPage();
-      }
-      else
-      {
-        app.UseHsts();
-      }
-
-      app.UseHttpsRedirection();
-      app.UseMvc();
-    }
-  }
 }
