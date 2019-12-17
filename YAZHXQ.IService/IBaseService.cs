@@ -3,8 +3,7 @@ using YAZHXQ.Common;
 
 namespace YAZHXQ.IService
 {
-    public interface IBaseService
+    public interface IBaseService<T> where T : class
     {
-        IRepository<T> CreateService<T>() where T : class, new();
     }
 }

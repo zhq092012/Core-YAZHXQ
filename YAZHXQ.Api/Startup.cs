@@ -47,12 +47,20 @@ namespace YAZHXQ.Api
                     services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString(DbType.SqlServer.ToString())));
                     break;
             }
-            services.AddScoped<IRepositoryFactory, RepositoryFactory>();
-            services.AddScoped<IStaffInfoService, StaffInfoService>();
+            AddMyServices(services);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-          
 
+
+        }
+        /// <summary>
+        /// 注册服务
+        /// </summary>
+        /// <param name="services"></param>
+        private static void AddMyServices(IServiceCollection services)
+        {
+            services.AddScoped<IRepositoryFactory, RepositoryFactory>();
+            services.AddScoped<IStaffInfoService, StaffInfoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

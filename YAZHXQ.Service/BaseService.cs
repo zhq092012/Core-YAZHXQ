@@ -6,20 +6,17 @@ using YAZHXQ.Models.Models;
 
 namespace YAZHXQ.Service
 {
-  public class BaseService : IBaseService
-  {
-    private IRepositoryFactory _repositoryFactory;
-    private DbContext _context;
-
-    public BaseService(IRepositoryFactory repositoryFactory, DbContext context)
+    public class BaseService<T> : IBaseService<T> where T : class
     {
-      _repositoryFactory = repositoryFactory;
-      _context = context;
-    }
+        private IRepositoryFactory _repositoryFactory;
+        private DbContext _context;
+        protected IRepository<T> _repository;
 
-    public IRepository<T> CreateService<T>() where T : class, new()
-    {
-      return _repositoryFactory.CreateRepository<T>(_context);
+        public BaseService(IRepositoryFactory repositoryFactory, DbContext context)
+        {
+            _repositoryFactory = repositoryFactory;
+            _context = context;
+            _repository = _repositoryFactory.CreateRepository<T>(_context);
+        }
     }
-  }
 }
