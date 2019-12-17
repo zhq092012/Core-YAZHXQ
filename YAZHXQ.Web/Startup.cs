@@ -38,12 +38,12 @@ namespace YAZHXQ.Web
                     services.AddDbContext<YAZHXQMysqlContext>(options => options.UseMySql(Configuration.GetConnectionString(DbType.Mysql.ToString())));
                     break;
                 case (int)DbType.SqlServer:
-                    //注入Sqlserver数据库上下文
-                    services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString(DbType.SqlServer.ToString())));
+                    //注入Sqlserver数据库上下文"b => b.UseRowNumberForPaging()解决分页报错"
+                    services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString(DbType.SqlServer.ToString()),b => b.UseRowNumberForPaging()));
                     break;
                 default:
                     //注入Sqlserver数据库上下文
-                    services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString(DbType.SqlServer.ToString())));
+                    services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString(DbType.SqlServer.ToString()), b => b.UseRowNumberForPaging()));
                     break;
             }
             AddMyServices(services);

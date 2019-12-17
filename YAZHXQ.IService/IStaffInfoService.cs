@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace YAZHXQ.IService
 {
     public interface IStaffInfoService
     {
-        List<StaffInfo> GetALL();
+         IQueryable<StaffInfo> GetALL();
         /// <summary>
         /// 异步获取实体列表
         /// </summary>

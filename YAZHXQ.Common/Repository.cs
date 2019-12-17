@@ -355,6 +355,11 @@ namespace YAZHXQ.Common
 
         public Task<int> DeleteAsync(T entity)
         {
+            var entrys = this._context.Entry(entity);
+            if (entrys.State == EntityState.Detached)
+            {
+                entrys.State = EntityState.Modified;
+            }
             this._dbSet.Remove(entity);
             return this._context.SaveChangesAsync();
         }

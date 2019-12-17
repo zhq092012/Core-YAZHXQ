@@ -16,9 +16,9 @@ namespace YAZHXQ.Service
 
         }
 
-        public List<StaffInfo> GetALL()
+        public IQueryable<StaffInfo> GetALL()
         {
-            return _repository.GetAll().ToList();
+            return _repository.GetAll();
         }
         /// <summary>
         /// 异步获取列表

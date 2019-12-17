@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 using YAZHXQ.IService;
 using YAZHXQ.Models.Models;
+using System;
+using System.Linq;
 
 namespace YAZHXQ.Web.Controllers
 {
-    public class StaffInfoesController : Controller
+    public class StaffInfoesController : BaseController
     {
         private readonly IStaffInfoService service;
 
@@ -20,9 +19,44 @@ namespace YAZHXQ.Web.Controllers
         }
 
         // GET: StaffInfoes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder,
+                                                string currentFilter,
+                                                string searchString,
+                                                int? pageNumber)
         {
-            return View(await service.GetALLAsync());
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewData["CurrentFilter"] = searchString;
+
+            var staffs = service.GetALL();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                staffs = staffs.Where(s => s.Name.Contains(searchString)
+                                       || s.AccountNo.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    staffs = staffs.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    staffs = staffs.OrderBy(s => s.CreateTime);
+                    break;
+                case "date_desc":
+                    staffs = staffs.OrderByDescending(s => s.CreateTime);
+                    break;
+                default:
+                    staffs = staffs.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(await PaginatedList<StaffInfo>.CreateAsync(staffs, pageNumber ?? 1, PageSize));
         }
 
         // 用户详情
@@ -62,7 +96,7 @@ namespace YAZHXQ.Web.Controllers
                     await service.AddAsync(staffInfo);
                     return RedirectToAction(nameof(Index));
                 }
-              
+
             }
             catch (DbUpdateException)
             {
