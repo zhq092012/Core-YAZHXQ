@@ -8,9 +8,9 @@ namespace YAZHXQ.Service
 {
     public class BaseService<T> : IBaseService<T> where T : class
     {
-        private IRepositoryFactory _repositoryFactory;
-        private DbContext _context;
-        protected IRepository<T> _repository;
+        private readonly IRepositoryFactory _repositoryFactory;
+        private readonly DbContext _context;
+        protected readonly IRepository<T> _repository;
 
         public BaseService(IRepositoryFactory repositoryFactory, DbContext context)
         {
