@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
+
 namespace YAZHXQ.Common
 {
     public interface IRepository<T> : IDisposable where T : class
@@ -219,5 +221,43 @@ namespace YAZHXQ.Common
         ///<param name="where">过滤条件</param>
         ///<returns></returns>
         TType Sum<TType>(Expression<Func<T, TType>> selector, Expression<Func<T, bool>> @where) where TType : new();
+
+
+        //================================以下为异步方法==================================
+        /// <summary>
+        /// 异步获取实体列表
+        /// </summary>
+        /// <returns></returns>
+        Task<List<T>> GetALLAsync();
+        /// <summary>
+        /// 异步获取第一个符合条件的实体
+        /// </summary>
+        /// <returns></returns>
+        Task<T> FirstOrDefaultAsync(Expression<Func<T,bool>> @where);
+        /// <summary>
+        /// 异步添加实体
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task<int> AddAsync(T entity);
+        /// <summary>
+        /// 异步查找第一个符合条件的实体
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        Task<T> FindAsync(params object[] keyValues);
+        /// <summary>
+        /// 异步更新实体
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task<int> UpdateAsync(T entity);
+        /// <summary>
+        /// 异步删除实体
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task<int> DeleteAsync(T entity);
+
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 using YAZHXQ.Models.Models;
 
 namespace YAZHXQ.Common
@@ -297,6 +298,65 @@ namespace YAZHXQ.Common
                 return this._dbSet.Where(@where).OrderByDescending(order).Skip((pageIndex - 1) * pageSize).Take(pageSize);
             }
             return this._dbSet.Where(@where).OrderBy(order).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+        }
+        /************************************以下为异步方法*****************************************/
+
+        /// <summary>
+        /// 异步获取列表
+        /// </summary>
+        /// <returns></returns>
+        public Task<List<T>> GetALLAsync()
+        {
+            return this._dbSet.AsNoTracking().ToListAsync();
+        }
+        /// <summary>
+        /// 异步获取第一个符合条件的实体
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> where)
+        {
+            return this._dbSet.AsNoTracking().FirstOrDefaultAsync(where);
+        }
+        /// <summary>
+        /// 异步添加实体
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public Task<int> AddAsync(T entity)
+        {
+            this._dbSet.Add(entity);
+            return this._context.SaveChangesAsync();
+        }
+        /// <summary>
+        /// 异步查找实体
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public Task<T> FindAsync(params object[] keyValues)
+        {
+            return this._dbSet.FindAsync(keyValues);
+        }
+        /// <summary>
+        /// 异步更新实体
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public Task<int> UpdateAsync(T entity)
+        {
+            this._dbSet.Update(entity);
+            return this._context.SaveChangesAsync();
+        }
+        /// <summary>
+        /// 异步删除实体
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+
+        public Task<int> DeleteAsync(T entity)
+        {
+            this._dbSet.Remove(entity);
+            return this._context.SaveChangesAsync();
         }
     }
 }

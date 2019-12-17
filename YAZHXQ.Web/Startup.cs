@@ -14,6 +14,7 @@ using YAZHXQ.Common;
 using YAZHXQ.IService;
 using YAZHXQ.Models.Models;
 using YAZHXQ.Service;
+using YAZHXQ.Utils;
 
 namespace YAZHXQ.Web
 {
@@ -29,13 +30,23 @@ namespace YAZHXQ.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //注入SqlServer数据库上下文
-            services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServer"))
-            .UseMySql(Configuration.GetConnectionString("Mysql")));
-            //注入Mysql数据库上下文
-            //services.AddDbContext<YAXQZHYYContext>(options => options.UseMySql(Configuration.GetConnectionString("Mysql")));
-            services.AddScoped<IRepositoryFactory, RepositoryFactory>();
-            services.AddScoped<IStaffInfoService, StaffInfoService>();
+            var dbType = Configuration.GetSection("DbType").Value.ToInt();
+            switch (dbType)
+            {
+                case (int)DbType.Mysql:
+                    //注入mysql数据库上下文
+                    services.AddDbContext<YAZHXQMysqlContext>(options => options.UseMySql(Configuration.GetConnectionString(DbType.Mysql.ToString())));
+                    break;
+                case (int)DbType.SqlServer:
+                    //注入Sqlserver数据库上下文
+                    services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString(DbType.SqlServer.ToString())));
+                    break;
+                default:
+                    //注入Sqlserver数据库上下文
+                    services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString(DbType.SqlServer.ToString())));
+                    break;
+            }
+            AddMyServices(services);
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -47,7 +58,15 @@ namespace YAZHXQ.Web
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
-
+        /// <summary>
+        /// 注册服务
+        /// </summary>
+        /// <param name="services"></param>
+        private static void AddMyServices(IServiceCollection services)
+        {
+            services.AddScoped<IRepositoryFactory, RepositoryFactory>();
+            services.AddScoped<IStaffInfoService, StaffInfoService>();
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {

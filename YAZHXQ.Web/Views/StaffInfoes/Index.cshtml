@@ -1,0 +1,221 @@
+﻿@model IEnumerable<YAZHXQ.Models.Models.StaffInfo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kqjno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AreasCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountPwd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SexName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SexCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ColledgeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfessionalName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffImg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MarriageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MarriageCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NationalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NationalName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoliticalStatusName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoliticalStatusCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idnumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OtherInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeptId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffIp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateStaffId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateStaffId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kqjno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AreasCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountPwd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SexName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SexCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ColledgeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfessionalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffImg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarriageName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarriageCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NationalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NationalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoliticalStatusName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoliticalStatusCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idnumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffIp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateStaffId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateStaffId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateTime)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-staffId="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
