@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using YAZHXQ.Common;
 using YAZHXQ.IService;
+using YAZHXQ.Models;
 using YAZHXQ.Models.Models;
 
 namespace YAZHXQ.Service

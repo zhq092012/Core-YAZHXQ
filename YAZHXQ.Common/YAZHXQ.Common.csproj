@@ -12,5 +12,4 @@
   <ItemGroup>
     <ProjectReference Include="..\YAZHXQ.Models\YAZHXQ.Models.csproj" />
   </ItemGroup>
-
 </Project>

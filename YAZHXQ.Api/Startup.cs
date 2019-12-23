@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using YAZHXQ.Common;
 using YAZHXQ.IService;
+using YAZHXQ.Models;
 using YAZHXQ.Models.Models;
 using YAZHXQ.Service;
 using YAZHXQ.Utils;
@@ -36,16 +37,12 @@ namespace YAZHXQ.Api
             {
                 case (int)DbType.Mysql:
                     //注入mysql数据库上下文
-                    services.AddDbContext<YAZHXQMysqlContext>(options => options.UseMySql(Configuration.GetConnectionString(DbType.Mysql.ToString())));
+                    services.AddDbContext<YAZHXQMysqlContext>(options => options.UseMySql(Configuration.GetConnectionString(DbType.Mysql.ToString()),b=>b.MigrationsAssembly("YAZHXQ.Web")).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
                     break;
                 case (int)DbType.SqlServer:
                     //注入Sqlserver数据库上下文
-                    services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString(DbType.SqlServer.ToString())));
-                    break;
-                default:
-                    //注入Sqlserver数据库上下文
-                    services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString(DbType.SqlServer.ToString())));
-                    break;
+                    services.AddDbContext<YAXQZHYYContext>(options => options.UseSqlServer(Configuration.GetConnectionString(DbType.SqlServer.ToString()), b => b.MigrationsAssembly("YAZHXQ.Web")).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+          break;
             }
             AddMyServices(services);
 

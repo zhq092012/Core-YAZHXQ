@@ -2,28 +2,29 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using YAZHXQ.Models.Models;
+using YAZHXQ.Models;
 
-namespace YAZHXQ.Models.Migrations.MysqlMigrations
+namespace YAZHXQ.Web.Migrations
 {
-    [DbContext(typeof(YAZHXQMysqlContext))]
-    [Migration("20191213131514_YAZHXQ_Mysql_20191213")]
-    partial class YAZHXQ_Mysql_20191213
+    [DbContext(typeof(YAXQZHYYContext))]
+    partial class YAXQZHYYContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("YAZHXQ.Models.Models.AccountBook", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AccountType");
 
@@ -57,7 +58,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Content");
 
@@ -96,7 +98,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ArchId")
                         .HasColumnName("ArchID");
@@ -127,7 +130,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClassCode")
                         .IsRequired()
@@ -172,7 +176,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ArchType");
 
@@ -207,7 +212,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ColId")
                         .HasColumnName("ColID");
@@ -227,7 +233,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("FileId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("FileID");
+                        .HasColumnName("FileID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DoDate")
                         .HasColumnType("datetime");
@@ -278,7 +285,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("FileDataId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("FileDataID");
+                        .HasColumnName("FileDataID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("MenuId")
                         .HasColumnName("MenuID");
@@ -301,7 +309,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("MenuId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("MenuID");
+                        .HasColumnName("MenuID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ArchId")
                         .HasColumnName("ArchID");
@@ -338,7 +347,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClassCode")
                         .IsRequired()
@@ -369,7 +379,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ColCode")
                         .IsRequired()
@@ -404,7 +415,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ArchType");
 
@@ -444,7 +456,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ArchCode")
                         .IsRequired()
@@ -528,7 +541,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Code")
                         .HasMaxLength(50);
@@ -561,7 +575,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -609,7 +624,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -644,7 +660,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Category")
                         .HasColumnName("CATEGORY")
@@ -726,7 +743,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -755,7 +773,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address")
                         .HasMaxLength(200);
@@ -818,7 +837,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Brand")
                         .HasMaxLength(20);
@@ -868,7 +888,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("DataId")
                         .HasColumnName("DataID");
@@ -889,7 +910,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("DeptId")
                         .HasColumnName("DeptID");
@@ -909,7 +931,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -947,7 +970,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AttributeType");
 
@@ -989,7 +1013,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -1033,7 +1058,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -1109,7 +1135,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("ExchangeId")
                         .HasColumnName("ExchangeID");
@@ -1160,7 +1187,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -1205,7 +1233,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -1242,7 +1271,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Alias")
                         .IsRequired()
@@ -1279,7 +1309,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AccountNo")
                         .HasMaxLength(50);
@@ -1361,7 +1392,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -1406,7 +1438,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -1453,7 +1486,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -1497,7 +1531,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ActionCode")
                         .IsRequired()
@@ -1549,7 +1584,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Author")
                         .HasMaxLength(20);
@@ -1602,7 +1638,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -1637,7 +1674,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -1687,7 +1725,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime?>("AcceptTime")
                         .HasColumnType("datetime");
@@ -1760,7 +1799,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -1818,7 +1858,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -1862,7 +1903,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime?>("AmendTime")
                         .HasColumnName("AMEndTime")
@@ -1900,7 +1942,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("Amount");
 
@@ -1948,7 +1991,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("ApplyTime")
                         .HasColumnType("datetime");
@@ -2012,7 +2056,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -2062,7 +2107,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("DataId")
                         .HasColumnName("DataID");
@@ -2101,7 +2147,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -2138,7 +2185,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ActualCubage")
                         .HasMaxLength(100);
@@ -2192,7 +2240,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DoDate")
                         .HasColumnType("datetime");
@@ -2231,7 +2280,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -2275,7 +2325,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -2339,7 +2390,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AccountNo")
                         .IsRequired()
@@ -2472,7 +2524,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("BackNo")
                         .HasColumnName("BackNO")
@@ -2533,7 +2586,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Brokerage");
 
@@ -2592,7 +2646,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Bank")
                         .HasMaxLength(50);
@@ -2659,7 +2714,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -2713,7 +2769,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AttachmentName")
                         .HasMaxLength(50);
@@ -2751,7 +2808,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -2780,7 +2838,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -2817,7 +2876,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");
@@ -2857,7 +2917,8 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID");
+                        .HasColumnName("ID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreateStaffId")
                         .HasColumnName("CreateStaffID");

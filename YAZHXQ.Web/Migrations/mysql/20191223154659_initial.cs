@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace YAZHXQ.Models.Migrations.MysqlMigrations
+namespace YAZHXQ.Web.migrations.mysql
 {
-    public partial class YAZHXQ_Mysql_20191213 : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

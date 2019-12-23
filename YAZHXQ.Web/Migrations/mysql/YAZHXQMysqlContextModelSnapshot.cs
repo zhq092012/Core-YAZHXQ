@@ -3,9 +3,9 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using YAZHXQ.Models.Models;
+using YAZHXQ.Models;
 
-namespace YAZHXQ.Models.Migrations.MysqlMigrations
+namespace YAZHXQ.Web.migrations.mysql
 {
     [DbContext(typeof(YAZHXQMysqlContext))]
     partial class YAZHXQMysqlContextModelSnapshot : ModelSnapshot
@@ -14,7 +14,7 @@ namespace YAZHXQ.Models.Migrations.MysqlMigrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
+                .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("YAZHXQ.Models.Models.AccountBook", b =>

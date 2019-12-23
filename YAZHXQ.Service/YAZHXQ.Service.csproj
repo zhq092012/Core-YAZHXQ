@@ -7,7 +7,6 @@
   <ItemGroup>
     <ProjectReference Include="..\YAZHXQ.Common\YAZHXQ.Common.csproj" />
     <ProjectReference Include="..\YAZHXQ.IService\YAZHXQ.IService.csproj" />
-    <ProjectReference Include="..\YAZHXQ.Models\YAZHXQ.Models.csproj" />
   </ItemGroup>
 
 </Project>
